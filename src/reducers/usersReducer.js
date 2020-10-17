@@ -1,11 +1,10 @@
 
+import {INITIALIZE_USERS} from '../actions/users'
 
 const usersReducer = (state=[],action)=>{
     switch(action.type){
-        case 'GET_USER':
-            return
-        case 'ALL_USERS':
-            return
+        case INITIALIZE_USERS:
+            return action.users
         default:
             return state
     }
