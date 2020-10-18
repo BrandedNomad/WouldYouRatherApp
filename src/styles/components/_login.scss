@@ -1,0 +1,55 @@
+.login-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.login-box {
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
+  border:1px solid #c4c4c4;
+  width:400px;
+  border-radius: 5px;
+  box-shadow: 2px 2px #c4c4c4;
+}
+
+.login-box_header {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  width:100%;
+  background-color:$dark-blue;
+  margin-bottom:10px;
+  color:white;
+  border-radius: 5px 5px 0 0;
+}
+
+.login-box_header_title {
+  font-family: 'Roboto', sans-serif;
+  padding:10px 0 0 0 ;
+  margin:0;
+}
+
+.login-box_header_subtitle {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  padding:10px 0 10px 0;
+  margin:0;
+}
+
+.login-box_body-text {
+  font-family: 'Roboto', sans-serif;
+  font-size:50px;
+  padding:10px 0 0 0 ;
+  margin:10px 0 0 0;
+}
+
+.login-box_image {
+  width:300px;
+}
+

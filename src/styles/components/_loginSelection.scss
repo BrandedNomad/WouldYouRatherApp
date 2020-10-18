@@ -2,6 +2,8 @@
 .login-form {
   border:1px solid #c4c4c4;
   width:fit-content;
+  margin-top:10px;
+  border-radius: 5px;
 }
 
 .login_selection_container {
@@ -10,6 +12,7 @@
   justify-content: flex-start;
   align-items: center;
   width:300px;
+  padding:10px;
 }
 
 .login_selection_text {
@@ -19,6 +22,7 @@
 .login_selection_image {
   width:20px;
   height:20px;
+  margin-right:10px;
 }
 
 .login_selection_chevron_container {
@@ -38,6 +42,7 @@
 .login_dropdown_item_image {
   width:20px;
   height:20px;
+  margin-right:10px;
 }
 
 .login_dropdown_ul {
@@ -57,9 +62,39 @@
   border:1px solid #c4c4c4;
   margin-left:0;
   background-color:white;
+  padding:10px;
+}
+
+.login_dropdown_item:hover {
+  background-color: #c4c4c4;
 }
 
 .login-form_button {
-  width:300px;
+  width:320px;
+  margin:10px 0 10px 0;
+  padding:10px;
+  border-radius: 5px;
+  background-color: $dark-blue;
+  border:none;
+  box-shadow: 2px 3px #c4c4c4;
+  color:white;
+  font-weight: 600;
+}
+
+.login-form_button:hover {
+  background-color: $primary-blue;
+  border:1px solid $dark-blue;
+  color: black;
+
+}
+
+.login-form_button:active {
+  box-shadow: 0 0 #c4c4c4;
+  outline:none;
+
+}
+
+.login-form_button:focus {
+  outline:none
 }
 
