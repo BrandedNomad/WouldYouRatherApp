@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-
 import {FiChevronDown} from "react-icons/all";
+
+import {login} from "../actions/login";
 
 class LoginSelection extends Component {
 
@@ -19,6 +20,7 @@ class LoginSelection extends Component {
 
     handleButtonClick(event){
         console.log("logging in ...", this.state.selected.id)
+        this.props.dispatch(login(this.state.selected))
     }
 
     handleListClick(event){
@@ -33,6 +35,7 @@ class LoginSelection extends Component {
             selected:this.props.users[id],
             isActive:!this.state.isActive
         })
+
     }
 
     render(){
