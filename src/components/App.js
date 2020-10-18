@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {handleInitialData} from "../actions/shared";
 import {connect} from "react-redux"
+import Login from "./Login"
 
 
 import '../styles/styles.scss';
@@ -13,11 +14,10 @@ class App extends Component {
 
 
 
-
     render(){
     return (
         <div className="App">
-            hi
+            <Login/>
         </div>
     );
   }

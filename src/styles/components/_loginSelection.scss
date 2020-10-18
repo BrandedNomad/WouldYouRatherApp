@@ -1,0 +1,58 @@
+
+.login-form {
+  border:1px solid #c4c4c4;
+  width:fit-content;
+}
+
+.login_selection_container {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width:300px;
+}
+
+.login_selection_text {
+  margin:0;
+}
+
+.login_selection_image {
+  width:20px;
+  height:20px;
+}
+
+.login_selection_chevron_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 2;
+
+}
+
+.login_selection_chevron {
+
+
+}
+
+.login_dropdown_item_image {
+  width:20px;
+  height:20px;
+}
+
+.login_dropdown_ul {
+  margin:0;
+  padding-inline-start:0px;
+}
+
+.login_dropdown_item {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width:300px;
+  border:1px solid #c4c4c4;
+  margin-left:0;
+}
+

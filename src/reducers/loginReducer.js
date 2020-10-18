@@ -1,6 +1,6 @@
 import {LOG_IN} from '../actions/login'
 
-const loginReducer = (state={},action)=>{
+const loginReducer = (state={state:false,user:null},action)=>{
     switch(action.type){
         case LOG_IN:
             return {
