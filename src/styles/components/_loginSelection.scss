@@ -43,6 +43,8 @@
 .login_dropdown_ul {
   margin:0;
   padding-inline-start:0px;
+  position:absolute;
+  z-index: 5;
 }
 
 .login_dropdown_item {
@@ -54,5 +56,10 @@
   width:300px;
   border:1px solid #c4c4c4;
   margin-left:0;
+  background-color:white;
+}
+
+.login-form_button {
+  width:300px;
 }
 
