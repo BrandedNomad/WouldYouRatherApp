@@ -1,4 +1,4 @@
-import {LOG_IN} from '../actions/login'
+import {LOG_IN,LOG_OUT} from '../actions/login'
 
 const loginReducer = (state={state:false,user:null},action)=>{
     switch(action.type){
@@ -7,6 +7,12 @@ const loginReducer = (state={state:false,user:null},action)=>{
                 state:true,
                 user:action.user
             }
+        case LOG_OUT:
+            return {
+                state:false,
+                user:null
+            }
+
         default:
             return state;
     }

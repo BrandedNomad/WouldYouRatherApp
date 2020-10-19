@@ -1,6 +1,7 @@
 
 
 export const LOG_IN = 'LOG_IN'
+export const LOG_OUT = 'LOG_OUT'
 
 export const login = (user)=>{
     return {
@@ -8,4 +9,10 @@ export const login = (user)=>{
         user
     }
 
+}
+
+export const logout = ()=>{
+    return {
+        type:LOG_OUT
+    }
 }

@@ -54,3 +54,17 @@
   width:300px;
 }
 
+.loading-login {
+  width:100px;
+}
+
+.nav-login_logout-text:hover {
+  text-decoration: underline $primary-blue;
+}
+
+.nav-login_logout-text:active {
+  text-decoration: underline $pink;
+  color:$pink;
+}
+
+
