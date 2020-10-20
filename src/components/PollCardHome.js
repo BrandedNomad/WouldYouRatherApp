@@ -29,7 +29,7 @@ class PollCardHome extends Component {
                     </div>
                     <div className='poll-card-home-body_content-container'>
                         <p className='poll-card-home-body_content-container_title'>would you rather</p>
-                        <p className='poll-card-home-body_content-container_subtitle'>...{this.props.optionOne}</p>
+                        <p className='poll-card-home-body_content-container_subtitle'>{"..." + this.props.optionOne}</p>
                         <button
                             className='poll-card-home-body_content-container_button'
                             onClick={this.handleCardClick}
@@ -41,20 +41,20 @@ class PollCardHome extends Component {
     }
 }
 
-function mapStateToProps({questions,users}){
-    const question = questions["8xf0y6ziyjabvozdd253nd"]
+function mapStateToProps({questions,users},{questionKey}){
+    const question = questions[questionKey]
 
-    console.log(questions)
 
-    //const user = users[question.author]
 
-    console.log("yes",question)
+    const user = users[question.author]
+
+
 
     return{
-        // questionId:question.id,
-        // authorId:question.author,
-        // authorName:users.name,
-        // optionOne:question.optionOne
+        questionId:question.id,
+        authorId:question.author,
+        authorName:user.name,
+        optionOne:question.optionOne.text
     }
 }
 
