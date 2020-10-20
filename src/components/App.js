@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {handleInitialData} from "../actions/shared";
 import {connect} from "react-redux"
+import {BrowserRouter,Route} from "react-router-dom";
+
 
 import Login from "./Login"
 import NavBar from "./NavBar";
@@ -20,10 +22,16 @@ class App extends Component {
 
     render(){
     return (
-        <div className="App">
-            <NavBar/>
-            <Home/>
-        </div>
+        <BrowserRouter>
+            <div className="App">
+                <NavBar/>
+                <div>
+                    <Route path='/' exact component={Home}/>
+                    <Route path='/login' exact component={Login}/>
+                </div>
+            </div>
+        </BrowserRouter>
+
     );
   }
 

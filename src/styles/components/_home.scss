@@ -1,0 +1,57 @@
+
+.home-container {
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items:flex-start;
+
+
+}
+
+.home-poll-menu-container {
+  border:1px solid #c4c4c4;
+  border-radius: 5px;
+
+}
+
+.home-poll-menu_body {
+  padding:0 10px 10px 10px;
+}
+
+.home-poll-menu_body_ul {
+  padding-inline-start:0;
+}
+
+.home-poll-menu_head {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width:100%;
+
+}
+
+.home-poll-menu_head_unanswered {
+  background-color:#c4c4c4;
+  width:50%;
+  border-right:1px solid black;
+  border-radius:5px 0 0 0;
+  padding:10px;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.home-poll-menu_head_answered {
+  background-color:#c4c4c4;
+  border-radius:0 5px 0 0;
+  width:50%;
+  padding:10px;
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items:center;
+
+}

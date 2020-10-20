@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect,NavLink} from "react-router-dom";
 
 import {logout} from "../actions/login";
 
@@ -15,9 +16,13 @@ class NavBar extends Component {
     handleLogout(){
         console.log("logged out")
         this.props.dispatch(logout())
+
+
     }
 
     render(){
+
+
         return(
             <div className="nav-container">
                 <div className='nav-center'>
@@ -41,12 +46,13 @@ class NavBar extends Component {
                             />
                         </div>
                         <div className='nav-login_logout-container'>
-                            <span
+                            <NavLink
+                                to='/login'
                                 className ='nav-login_logout-text'
                                 onClick={this.handleLogout}
                             >
                                 Logout
-                            </span>
+                            </NavLink>
                         </div>
 
                     </div>}

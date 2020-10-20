@@ -6,6 +6,7 @@ import {Provider} from 'react-redux'
 import {createStore} from "redux";
 import rootReducer from './reducers'
 import middleWare from './middleware'
+import {BrowserRouter} from 'react-router-dom'
 
 const store = createStore(rootReducer,middleWare)
 

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {FiChevronDown} from "react-icons/all";
+import {Redirect} from 'react-router-dom'
 
 import {login} from "../actions/login";
 
@@ -11,7 +12,8 @@ class LoginSelection extends Component {
 
         this.state={
             selected:this.props.users.sarahedo,
-            isActive:false
+            isActive:false,
+            isLoggedIn:false,
         }
         this.handleListClick = this.handleListClick.bind(this)
         this.handleItemClick = this.handleItemClick.bind(this)
@@ -19,8 +21,9 @@ class LoginSelection extends Component {
     }
 
     handleButtonClick(event){
-        console.log("logging in ...", this.state.selected.id)
         this.props.dispatch(login(this.state.selected))
+        this.setState({isLoggedIn:true})
+
     }
 
     handleListClick(event){
@@ -39,9 +42,14 @@ class LoginSelection extends Component {
     }
 
     render(){
-
+        const {isLoggedIn} = this.state
+        console.log("isloggedIn:",isLoggedIn)
         const users = this.props.users;
         const userIds = Object.keys(users); //can access the first level keys
+
+        if(isLoggedIn){
+            return <Redirect to='/'/>
+        }
 
 
         return (

@@ -10,12 +10,27 @@ class Home extends Component {
         console.log("keys", questionKeys)
 
         return (
-            <div>
-                {this.props.question && <ul>
-                    {questionKeys.map((item)=>{
-                        return <PollCardHome key={item} questionKey={item}/>
-                    })}
-                </ul>}
+            <div className='home-container'>
+                <div className='home-poll-menu-container'>
+                    <div className='home-poll-menu_head'>
+                        <div className='home-poll-menu_head_unanswered'>
+                            <span>Unanswered Questions</span>
+                        </div>
+                        <div className='home-poll-menu_head_answered'>
+                            <span>Answered Questions</span>
+                        </div>
+
+                    </div>
+                    <div className='home-poll-menu_body'>
+                        <div>
+                            {this.props.question && <ul className='home-poll-menu_body_ul'>
+                                {questionKeys.map((item)=>{
+                                    return <PollCardHome key={item} questionKey={item}/>
+                                })}
+                            </ul>}
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
