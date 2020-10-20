@@ -4,6 +4,7 @@ import {connect} from "react-redux"
 
 import Login from "./Login"
 import NavBar from "./NavBar";
+import PollCardHome from "./PollCardHome"
 
 
 import '../styles/styles.scss';
@@ -20,7 +21,7 @@ class App extends Component {
     return (
         <div className="App">
             <NavBar/>
-            <Login/>
+            <PollCardHome/>
         </div>
     );
   }
