@@ -43,6 +43,16 @@
   align-items: center;
 }
 
+.home-poll-menu_head_unanswered:hover {
+  background-color: $primary-blue;
+  color:black;
+}
+
+.home-poll-menu_head_unanswered:active{
+  background-color: $pink;
+  color:white
+}
+
 
 .home-poll-menu_head_answered {
   background-color:#c4c4c4;
@@ -54,4 +64,14 @@
   justify-content: center;
   align-items:center;
 
+}
+
+.home-poll-menu_head_answered:hover {
+  background-color: $primary-blue;
+  color:black;
+}
+
+.home-poll-menu_head_answered:active{
+  background-color: $pink;
+  color:white
 }
