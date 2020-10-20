@@ -8,6 +8,10 @@ class PollCardHome extends Component {
         this.handleCardClick = this.handleCardClick.bind(this)
     }
 
+    handleCardClick(event){
+
+    }
+
 
     render(){
         return(
@@ -39,14 +43,18 @@ class PollCardHome extends Component {
 
 function mapStateToProps({questions,users}){
     const question = questions["8xf0y6ziyjabvozdd253nd"]
-    const user = users[question.author]
+
+    console.log(questions)
+
+    //const user = users[question.author]
+
+    console.log("yes",question)
 
     return{
-        questionId:question.id,
-        authorId:question.author,
-        authorName:user.name,
-        optionOne:question.optionOne
-
+        // questionId:question.id,
+        // authorId:question.author,
+        // authorName:users.name,
+        // optionOne:question.optionOne
     }
 }
 
