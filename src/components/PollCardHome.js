@@ -41,15 +41,8 @@ class PollCardHome extends Component {
     }
 }
 
-function mapStateToProps({questions,users},{questionKey}){
-    const question = questions[questionKey]
-
-
-
+function mapStateToProps({questions,users},{question}){
     const user = users[question.author]
-
-
-
     return{
         questionId:question.id,
         authorId:question.author,
