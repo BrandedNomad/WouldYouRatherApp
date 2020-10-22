@@ -27,12 +27,18 @@ class NavBar extends Component {
             <div className="nav-container">
                 <div className='nav-center'>
                     <div className="nav-pages">
-                        <div className="nav-pages_home-container">
+                        <NavLink
+                            className="nav-pages_home-container"
+                            to="/"
+                        >
                             <span className="nav-pages_home-text">Home</span>
-                        </div>
-                        <div className="nav-pages_question-container">
+                        </NavLink>
+                        <NavLink
+                            className="nav-pages_question-container"
+                            to='/add'
+                        >
                             <span className="nav-pages_question-text">New Question</span>
-                        </div>
+                        </NavLink>
                         <div className="nav-pages_leader-container">
                             <span className="nav-pages_leader-text">Leader Board</span>
                         </div>

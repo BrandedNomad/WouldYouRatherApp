@@ -1,0 +1,125 @@
+
+.new-question-page {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.new-question-container {
+  width:500px;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border:1px solid #c4c4c4;
+  border-radius:5px;
+  box-shadow: #c4c4c4 2px 2px;
+}
+
+.new-question_header {
+  background-color: $dark-blue;
+  height:50px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  border-radius: $s-size $s-size 0 0;
+}
+
+.new-question_header_title {
+  font-family: 'Roboto', sans-serif;
+  font-size:20px;
+  color:white;
+}
+
+.new-question_form-container {
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.new-question_form {
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: center;
+  width:$card-width;
+  margin-top:$m-size;
+}
+
+.new-question_form_body-container-outer{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width:100%;
+}
+
+.new-question_form_body-container-inner {
+  width:90%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:flex-start;
+}
+
+
+.new-question_form_title {
+  font-family: 'Roboto', sans-serif;
+  margin:0;
+  padding-top:$m-size;
+
+}
+
+.new-question_form_body {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size:20px;
+  margin:0;
+  padding-top:$m-size
+
+}
+
+
+.new-question_option-one {
+  width:90%;
+  border-radius:$s-size;
+  padding:$s-size 0 $s-size 0;
+  padding:$s-size 0 $s-size 0;
+}
+
+.new-question_option-two {
+  width:90%;
+  border-radius:$s-size;
+  padding:$s-size 0 $s-size 0;
+
+}
+
+.new-question_form_button {
+  width:90%;
+  padding:$s-size;
+  border:1px solid $dark-blue;
+  border-radius:$s-size;
+  margin: $m-size 0 $m-size 0;
+  background-color:$dark-blue ;
+  color:white;
+  outline:none;
+  box-shadow: #c4c4c4 2px 2px;
+}
+
+.new-question_form_button:hover {
+  background-color: $primary-blue;
+  color:black;
+  outline:none;
+  border:1px solid $primary-blue;
+  box-shadow: #c4c4c4 2px 2px;
+}
+
+.new-question_form_button:active {
+  background-color: $pink;
+  border:1px solid $pink;
+  color:white;
+  outline:none;
+  box-shadow: #c4c4c4 0 0;
+}

@@ -6,8 +6,9 @@ import {BrowserRouter,Route} from "react-router-dom";
 
 import Login from "./Login"
 import NavBar from "./NavBar";
-import PollCardHome from "./PollCardHome"
+import NewQuestion from "./NewQuestion"
 import Home from "./Home";
+
 
 
 import '../styles/styles.scss';
@@ -28,6 +29,7 @@ class App extends Component {
                 <div>
                     <Route path='/' exact component={Home}/>
                     <Route path='/login' exact component={Login}/>
+                    <Route path='/add' exact component={NewQuestion}/>
                 </div>
             </div>
         </BrowserRouter>
