@@ -8,6 +8,7 @@ import Login from "./Login"
 import NavBar from "./NavBar";
 import NewQuestion from "./NewQuestion"
 import Home from "./Home";
+import LeaderBoard from "./LeaderBoard";
 
 
 
@@ -30,6 +31,7 @@ class App extends Component {
                     <Route path='/' exact component={Home}/>
                     <Route path='/login' exact component={Login}/>
                     <Route path='/add' exact component={NewQuestion}/>
+                    <Route path='/leaderboard' exact component={LeaderBoard}/>
                 </div>
             </div>
         </BrowserRouter>

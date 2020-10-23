@@ -39,9 +39,12 @@ class NavBar extends Component {
                         >
                             <span className="nav-pages_question-text">New Question</span>
                         </NavLink>
-                        <div className="nav-pages_leader-container">
+                        <NavLink
+                            className="nav-pages_leader-container"
+                            to='/leaderboard'
+                        >
                             <span className="nav-pages_leader-text">Leader Board</span>
-                        </div>
+                        </NavLink>
                     </div>
                     {this.props.isLoggedIn && <div className="nav-login">
                         <div className='nav-login-user-container'>

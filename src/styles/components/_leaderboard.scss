@@ -1,0 +1,23 @@
+
+.leaderboard-page {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:flex-start;
+}
+
+.leaderboard-list-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width:$card-width;
+}
+
+.leaderboard-list {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width:$card-width;
+}

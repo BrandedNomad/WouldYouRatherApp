@@ -60,6 +60,7 @@ class NewQuestion extends Component {
                     <div className='new-question_form-container'>
                         <div className="new-question_form_body-container-outer">
                             <div className="new-question_form_body-container-inner">
+                                <img  className='new-question_form_img' src='./img/choice.jpg' alt='choice a or b'/>
                                 <p className="new-question_form_title">Complete the question</p>
                                 <p className="new-question_form_body">Would you rather...</p>
                             </div>
@@ -81,7 +82,7 @@ class NewQuestion extends Component {
                                 }}
                                 placeholder='Enter Option One Text Here'
                             />
-                            <p>OR</p>
+                            <div className='or-separator'><span className="or-line"><p className='or-text'>OR</p></span></div>
                             <input
                                 className="new-question_option-two"
                                 type='text'
