@@ -1,0 +1,131 @@
+
+.poll-card-questions-page {
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items:flex-start;
+}
+
+.poll-card-questions-container {
+  width:$card-width;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border:1px solid #c4c4c4;
+  border-radius: $s-size;
+}
+
+.poll-card-questions_header-container {
+  background-color:#c4c4c4;
+  height: $card-header-height;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.poll-card-questions_header-text {
+  font-family: 'Roboto', sans-serif;
+  font-size:$l-size;
+  font-weight: 600;
+  margin-left:$s-size;
+
+}
+
+.poll-card-questions_body{
+  width:100%;
+  height:200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+
+}
+
+.poll-card-questions_body_image-container {
+  width:200px;
+  height: 200px;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.poll-card-questions_body_image {
+  width:90%;
+}
+
+
+.poll-card-questions_body_content-container {
+  border-left:1px solid #c4c4c4;
+  padding-left:$s-size;
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.poll-card-questions_body_title{
+  font-family: 'Roboto', sans-serif;
+  font-size:$l-size;
+  margin:0 0 $m-size;
+  display:flex;
+  align-self: flex-start;
+}
+
+.poll-card-questions_body_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width:100%;
+}
+
+.poll-card-questions_body_optionOne-container{
+  margin-bottom: $m-size;
+}
+
+.poll-card-questions_body_optionOne-label {
+  margin:$m-size;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: $l-size;
+}
+
+.poll-card-questions_body_optionTwo-container{
+  margin-bottom: $m-size;
+}
+
+.poll-card-questions_body_optionTwo-label {
+  margin:$m-size;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: $l-size;
+}
+
+.poll-card-questions_body_button{
+  width:90%;
+  background-color:$dark-blue;
+  outline: none;
+  border-radius: $s-size;
+  border-color:$dark-blue;
+  color:white;
+  padding:$s-size;
+
+}
+
+.poll-card-questions_body_button:hover {
+  background-color: $primary-blue;
+  border-color: $primary-blue;
+  color:black;
+}
+
+.poll-card-questions_body_button:active {
+  background-color: $pink;
+  border-color: $pink;
+  color:white;
+}

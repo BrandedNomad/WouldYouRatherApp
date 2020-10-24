@@ -1,19 +1,28 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom'
 
 class PollCardHome extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            submitted:false
+        }
         this.handleCardClick = this.handleCardClick.bind(this)
     }
 
     handleCardClick(event){
-
+        this.setState({submitted:true})
     }
 
 
     render(){
+
+        if(this.state.submitted === true){
+            return <Redirect to={'/questions/' + this.props.questionId}/>
+        }
+
         return(
             <div className='poll-card-home-container'>
                 <div className='poll-card-home-header'>
