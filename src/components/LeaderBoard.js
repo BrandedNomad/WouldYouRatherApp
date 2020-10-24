@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import LeaderBoardItem from "./LeaderBoardItem";
+import {Redirect} from "react-router-dom";
 
 class LeaderBoard extends Component {
 
@@ -8,6 +9,10 @@ class LeaderBoard extends Component {
     render(){
 
         //todo: refactor code into functions
+        const currentUser = this.props.currentUser
+        if(currentUser === undefined || currentUser === null){
+            return <Redirect to={'/login'}/>
+        }
 
 
 
@@ -56,9 +61,10 @@ class LeaderBoard extends Component {
     }
 }
 
-function mapStateToProps({users}){
+function mapStateToProps({users,login}){
     return {
-        users
+        users,
+        currentUser:login.user
     }
 }
 

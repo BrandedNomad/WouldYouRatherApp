@@ -50,6 +50,12 @@ class NewQuestion extends Component {
             return <Redirect to={'/'}/>
         }
 
+        const currentUser = this.props.currentUser;
+
+        if(currentUser === undefined || currentUser === null){
+            return <Redirect to={'/login'}/>
+        }
+
 
         return(
             <div className='new-question-page'>

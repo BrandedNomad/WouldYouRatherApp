@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom'
 
 import PollCardHome from "./PollCardHome";
 
@@ -30,6 +31,10 @@ class Home extends Component {
 
         //get user
         const currentUser = login.user;
+
+        if(currentUser === undefined || currentUser === null){
+            return <Redirect to={'/login'}/>
+        }
 
         //get answered questions ids
         const answers = currentUser.answers

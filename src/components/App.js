@@ -9,6 +9,7 @@ import NavBar from "./NavBar";
 import NewQuestion from "./NewQuestion"
 import Home from "./Home";
 import LeaderBoard from "./LeaderBoard";
+import PollCardQuestion from './PollCardQuestion'
 
 
 
@@ -32,6 +33,7 @@ class App extends Component {
                     <Route path='/login' exact component={Login}/>
                     <Route path='/add' exact component={NewQuestion}/>
                     <Route path='/leaderboard' exact component={LeaderBoard}/>
+                    <Route path='/questions' exact component={PollCardQuestion}/>
                 </div>
             </div>
         </BrowserRouter>
