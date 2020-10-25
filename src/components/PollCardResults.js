@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 class PollCardResults extends Component {
     render() {
 
+        //todo: refactor into smaller functions
+
         const resultsId = this.props.match.params.resultsId
         const result = this.props.questions[resultsId]
         const users = this.props.users
@@ -13,14 +15,30 @@ class PollCardResults extends Component {
 
         let optionOne = ''
         let optionTwo = ''
+        let totalVotes =[]
+        let percentageOptionOne = 0;
+        let percentageOptionTwo = 0;
+        let optionOneTotal=0;
+        let totalVotesNumber=0;
 
         if(result !== undefined){
 
             optionOne = result.optionOne
             optionTwo = result.optionTwo
             name = users[result.author].name
+            totalVotes = totalVotes.concat(optionOne.votes)
+            totalVotes = totalVotes.concat(optionTwo.votes)
+
+            totalVotesNumber = totalVotes.length
+
+            percentageOptionOne =  (optionOne.votes.length / totalVotesNumber) * 100
+            percentageOptionTwo =  (optionTwo.votes.length / totalVotesNumber) * 100
+
+
 
             console.log("here it is:", result)
+            console.log("total votes:",totalVotes)
+            console.log("return value:", percentageOptionOne, percentageOptionTwo)
         }
 
 
@@ -58,11 +76,15 @@ class PollCardResults extends Component {
                                 </p>
                                 <div className='poll-card-results-content_bar-container'>
                                     <div className='poll-card-results-content_bar'>
-                                        <p className='poll-card-results-content_bar-text'>90%</p>
+                                        <p
+                                            className='poll-card-results-content_bar-text'
+                                        >
+                                            {percentageOptionOne}%
+                                        </p>
                                     </div>
                                 </div>
                                 <div className='poll-card-results-content_total-container'>
-                                    <p className='poll-card-results-content_total-text'>2 out of 3 votes</p>
+                                    <p className='poll-card-results-content_total-text'>{optionOne.votes.length} out of {totalVotes.length} votes</p>
                                 </div>
 
                             </div>
@@ -84,11 +106,15 @@ class PollCardResults extends Component {
                                 </p>
                                 <div className='poll-card-results-content_bar-container'>
                                     <div className='poll-card-results-content_bar'>
-                                        <p className='poll-card-results-content_bar-text'>90%</p>
+                                        <p
+                                            className='poll-card-results-content_bar-text'
+                                        >
+                                            {percentageOptionTwo}%
+                                        </p>
                                     </div>
                                 </div>
                                 <div className='poll-card-results-content_total-container'>
-                                    <p className='poll-card-results-content_total-text'>2 out of 3 votes</p>
+                                    <p className='poll-card-results-content_total-text'>{optionTwo.votes.length} out of {totalVotes.length} votes</p>
                                 </div>
                             </div>
 
