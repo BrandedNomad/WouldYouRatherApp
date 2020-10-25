@@ -1,4 +1,4 @@
-import {INITIALIZE_QUESTIONS,ADD_QUESTION} from "../actions/questions";
+import {INITIALIZE_QUESTIONS,ADD_QUESTION, SAVE_ANSWER} from "../actions/questions";
 
 
 const usersReducer = (state=[],action)=>{
@@ -9,6 +9,17 @@ const usersReducer = (state=[],action)=>{
             return {
                 ...state,
                 [action.question.id]: action.question
+            }
+        case SAVE_ANSWER:
+            return {
+                ...state,
+                [action.answer.qid]:{
+                    ...state[action.answer.qid],
+                    [action.answer.answer]: {
+                        text:state[action.answer.qid][action.answer.answer].text,
+                        votes:state[action.answer.qid][action.answer.answer].votes.concat([action.answer.authedUser])
+                    }
+                }
             }
         default:
             return state

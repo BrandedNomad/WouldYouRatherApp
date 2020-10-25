@@ -1,6 +1,6 @@
-import {_getUsers, _getQuestions, _saveQuestion} from "../utils/_DATA";
-import {initializeUsers,addUserQuestion} from "./users";
-import {initializeQuestions, addQuestion} from "./questions";
+import {_getUsers, _getQuestions, _saveQuestion, _saveQuestionAnswer} from "../utils/_DATA";
+import {initializeUsers,addUserQuestion,saveUserAnswer} from "./users";
+import {initializeQuestions, addQuestion, saveAnswerQuestion} from "./questions";
 
 
 export const handleInitialData = ()=>{
@@ -36,6 +36,23 @@ export const handleAddQuestion=(optionOneText, optionTwoText, author)=>{
                 console.log("there has been an error",error)
             })
 
+    }
+
+}
+
+
+export const handleAnswerQuestion=(authedUser, qid, answer)=>{
+
+    return (dispatch)=>{
+
+        return _saveQuestionAnswer({authedUser, qid, answer})
+            .then((result)=>{
+                dispatch(saveAnswerQuestion(authedUser,qid,answer))
+                dispatch(saveUserAnswer(authedUser,qid,answer))
+            })
+            .catch((error)=>{
+                console.log(error)
+            })
     }
 
 }

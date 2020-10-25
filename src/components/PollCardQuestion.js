@@ -1,36 +1,61 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {handleAnswerQuestion} from "../actions/shared";
+import {Redirect} from 'react-router-dom'
 
 class PollCardQuestion extends Component {
 
     constructor(props) {
         super(props);
+        this.state={
+            submitted:false
+        }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleSubmit(event){
         event.preventDefault()
-        let choice = document.querySelector('input[name="question"]:checked').value;
-        console.log("This event", choice)
+        let answer = document.querySelector('input[name="question"]:checked').value
+        console.log("This is the one you are looking for:", this.props.login.user.id)
+
+        const authedUser = this.props.login.user.id
+        const qid =  this.props.match.params.questionId
+
+        this.props.dispatch(handleAnswerQuestion(authedUser,qid, answer))
+        this.setState({submitted:true})
     }
 
     render(){
 
+
+
         let questionId = this.props.match.params.questionId
 
+        if(this.state.submitted){
+            return <Redirect to={'/results/' + questionId}/>
+        }
+
         let question = this.props.questions[questionId]
+        let users = this.props.users
 
         let authorId = ''
         let author = ''
         let optionOne = '';
         let optionTwo = '';
 
+
+
         if(question !== undefined){
-            author = this.props.users[question.author].name
+
+            console.log("this is the one",author)
             authorId = question.author
             optionOne = question.optionOne.text
             optionTwo = question.optionTwo.text
             console.log("the author",optionTwo)
+        }
+
+        if(users !== undefined) {
+            author = users[question.author].name
         }
 
 
@@ -63,7 +88,8 @@ class PollCardQuestion extends Component {
                                                 type='radio'
                                                 id='optionOne'
                                                 name='question'
-                                                value={optionOne}
+                                                value='optionOne'
+                                                defaultChecked={true}
                                                 className='poll-card-questions_body_optionOne-button'
                                             />
                                             <label
@@ -76,7 +102,7 @@ class PollCardQuestion extends Component {
                                                 type='radio'
                                                 id='optionTwo'
                                                 name='question'
-                                                value={optionTwo}
+                                                value='optionTwo'
                                                 className='poll-card-questions_body_optionTwo-button'
                                             />
                                             <label

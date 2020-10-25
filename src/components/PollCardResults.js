@@ -32,8 +32,8 @@ class PollCardResults extends Component {
 
             totalVotesNumber = totalVotes.length
 
-            percentageOptionOne =  (optionOne.votes.length / totalVotesNumber) * 100
-            percentageOptionTwo =  (optionTwo.votes.length / totalVotesNumber) * 100
+            percentageOptionOne =  Math.floor((optionOne.votes.length / totalVotesNumber) * 100)
+            percentageOptionTwo =  Math.floor((optionTwo.votes.length / totalVotesNumber) * 100)
 
             optionOneStyle = {
                 width: percentageOptionOne + '%'

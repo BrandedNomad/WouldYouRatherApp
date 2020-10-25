@@ -27,7 +27,9 @@ class Home extends Component {
 
         //todo: refactor the below code into functions
 
-        const {login, questions} = this.props
+        const {login, questions,users} = this.props
+
+        const checkUsers = users
 
         //get user
         const currentUser = login.user;
@@ -37,7 +39,8 @@ class Home extends Component {
         }
 
         //get answered questions ids
-        const answers = currentUser.answers
+        const answers = users[currentUser.id].answers
+        console.log("Still the same?:", answers, users[currentUser.id])
         const answeredQuestionsIds = Object.keys(answers)
 
         //get all question ids
@@ -96,18 +99,18 @@ class Home extends Component {
                         {
                             this.state.activeTab === 'unanswered'
                                 ? <div>
-                                    {this.props.question && <ul className='home-poll-menu_body_ul'>
+                                    <ul className='home-poll-menu_body_ul'>
                                         {unansweredQuestions.map((item)=>{
-                                            return <PollCardHome key={item.id} question={item}/>
+                                            return <PollCardHome key={item.id} question={item} tab={this.state.activeTab}/>
                                         })}
-                                    </ul>}
+                                    </ul>
                                 </div>
                                 : <div>
-                                    {this.props.question && <ul className='home-poll-menu_body_ul'>
+                                    <ul className='home-poll-menu_body_ul'>
                                         {answeredQuestions.map((item)=>{
-                                            return <PollCardHome key={item.id} question={item}/>
+                                            return <PollCardHome key={item.id} question={item} tab={this.state.activeTab}/>
                                         })}
-                                    </ul>}
+                                    </ul>
                                 </div>
                         }
 
@@ -121,11 +124,9 @@ class Home extends Component {
 function mapStateToProps({questions,login,users}){
 
     return {
-        question:questions["8xf0y6ziyjabvozdd253nd"],
         questions:questions,
         login:login,
         users:users
-
     }
 }
 

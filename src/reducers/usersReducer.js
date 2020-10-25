@@ -1,5 +1,5 @@
 
-import {INITIALIZE_USERS,ADD_USER_QUESTION} from '../actions/users'
+import {INITIALIZE_USERS,ADD_USER_QUESTION,SAVE_USER_ANSWER} from '../actions/users'
 
 
 
@@ -15,6 +15,17 @@ const usersReducer = (state=[],action)=>{
                     questions:state[action.userId].questions.concat([action.questionId])
                 }
 
+            }
+        case SAVE_USER_ANSWER:
+            return {
+                ...state,
+                [action.authedUser]:{
+                    ...state[action.authedUser],
+                    answers:{
+                        ...state[action.authedUser].answers,
+                        [action.qid]:[action.answer][0]
+                    }
+                }
             }
         default:
             return state

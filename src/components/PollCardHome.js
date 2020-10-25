@@ -19,9 +19,14 @@ class PollCardHome extends Component {
 
     render(){
 
-        if(this.state.submitted === true){
+        if(this.state.submitted === true && this.props.tab === 'unanswered'){
+            return <Redirect to={'/questions/' + this.props.questionId}/>
+        }
+
+        if(this.state.submitted === true && this.props.tab === 'answered'){
             return <Redirect to={'/results/' + this.props.questionId}/>
         }
+
 
         return(
             <div className='poll-card-home-container'>
@@ -50,13 +55,14 @@ class PollCardHome extends Component {
     }
 }
 
-function mapStateToProps({questions,users},{question}){
+function mapStateToProps({questions,users},{question,tab}){
     const user = users[question.author]
     return{
         questionId:question.id,
         authorId:question.author,
         authorName:user.name,
-        optionOne:question.optionOne.text
+        optionOne:question.optionOne.text,
+        tab
     }
 }
 
