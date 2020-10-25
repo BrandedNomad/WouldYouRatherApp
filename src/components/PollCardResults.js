@@ -18,8 +18,9 @@ class PollCardResults extends Component {
         let totalVotes =[]
         let percentageOptionOne = 0;
         let percentageOptionTwo = 0;
-        let optionOneTotal=0;
         let totalVotesNumber=0;
+        let optionOneStyle={};
+        let optionTwoStyle={};
 
         if(result !== undefined){
 
@@ -33,6 +34,14 @@ class PollCardResults extends Component {
 
             percentageOptionOne =  (optionOne.votes.length / totalVotesNumber) * 100
             percentageOptionTwo =  (optionTwo.votes.length / totalVotesNumber) * 100
+
+            optionOneStyle = {
+                width: percentageOptionOne + '%'
+            }
+
+            optionTwoStyle={
+                width:percentageOptionTwo + "%"
+            }
 
 
 
@@ -75,7 +84,12 @@ class PollCardResults extends Component {
                                     Would you rather {optionOne.text}?
                                 </p>
                                 <div className='poll-card-results-content_bar-container'>
-                                    <div className='poll-card-results-content_bar'>
+                                    <div
+                                        className='poll-card-results-content_bar'
+                                        style={optionOneStyle}
+                                    >
+                                    </div>
+                                    <div className='poll-card-results-content_bar-text-container'>
                                         <p
                                             className='poll-card-results-content_bar-text'
                                         >
@@ -105,7 +119,12 @@ class PollCardResults extends Component {
                                     Would you rather {optionTwo.text}?
                                 </p>
                                 <div className='poll-card-results-content_bar-container'>
-                                    <div className='poll-card-results-content_bar'>
+                                    <div
+                                        className='poll-card-results-content_bar'
+                                        style={optionTwoStyle}
+                                    >
+                                    </div>
+                                    <div className='poll-card-results-content_bar-text-container'>
                                         <p
                                             className='poll-card-results-content_bar-text'
                                         >
