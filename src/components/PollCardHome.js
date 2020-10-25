@@ -20,7 +20,7 @@ class PollCardHome extends Component {
     render(){
 
         if(this.state.submitted === true){
-            return <Redirect to={'/questions/' + this.props.questionId}/>
+            return <Redirect to={'/results/' + this.props.questionId}/>
         }
 
         return(

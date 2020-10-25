@@ -1,0 +1,165 @@
+
+.poll-card-results-page{
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.poll-card-results-container{
+  border:1px solid #c4c4c4;
+  border-radius: $s-size;
+  box-shadow: #c4c4c4 2px 2px;
+  width:$card-width
+
+}
+
+.poll-card-results-header{
+  background-color: #c4c4c4;
+  width:100%;
+  height:$card-header-height;
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: $s-size $s-size 0 0;
+
+
+}
+
+.poll-card-results-header_text{
+  margin:0;
+  font-family: 'Roboto', sans-serif;
+  font-size: $l-size;
+  padding-left:$m-size;
+}
+
+.poll-card-results-body{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding:10px;
+
+}
+
+.poll-card-results-image-container{
+  width:200px;
+}
+
+.poll-card-results-image{
+  width:90%;
+}
+
+.poll-card-results-content-container{
+  border-left:1px solid #c4c4c4;
+  padding-left:$m-size;
+  width:100%;
+
+}
+
+.poll-card-results-content_title{
+  font-family: 'Roboto', sans-serif;
+  font-size: $l-size;
+  font-weight: 600;
+  margin:0;
+}
+
+.poll-card-results-content_option-container {
+  border:1px solid $dark-blue;
+  margin-top:$m-size;
+  padding:$m-size;
+  border-radius: $s-size;
+  width:90%;
+
+}
+.poll-card-results-user-choice-container-outer {
+  position:relative;
+  top:-20px;
+  right:-30px;
+}
+
+
+.poll-card-results-user-choice-container-absolute{
+  position: absolute;
+  top:0;
+  right:0;
+  z-index:5;
+
+}
+
+.poll-card-results-user-choice-container{
+  width:50px;
+  height: 50px;
+  background-color: $pink;
+  border-radius: 50%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.poll-card-results-user-choice_text-your{
+  margin:0;
+  color:white;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.poll-card-results-user-choice_text-vote{
+  margin:0;
+  color:white;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.poll-card-results-content_question{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: $l-size;
+  margin:0;
+
+}
+
+.poll-card-results-content_bar-container{
+  border:1px solid $dark-blue;
+  border-radius: $s-size;
+  width:100%;
+  height:30px;
+  background-color: #c4c4c4;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top:$m-size;
+}
+
+.poll-card-results-content_bar{
+  background-color:$dark-blue;
+  height: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.poll-card-results-content_bar-text{
+  margin:0;
+  color:white;
+}
+
+.poll-card-results-content_total-container{
+  margin-top:$s-size;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.poll-card-results-content_total-text{
+  margin:0;
+
+}
+
