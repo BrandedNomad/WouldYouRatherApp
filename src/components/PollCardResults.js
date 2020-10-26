@@ -2,24 +2,40 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from "react-router-dom";
 
+/**
+ * @description Represents the view where users can view a selected poll's results
+ * @class
+ */
 class PollCardResults extends Component {
+
+    /**
+     * @description Renders and instance of PollCardResults
+     * @returns {JSX.Element}
+     */
     render() {
 
         //todo: refactor into smaller functions
 
+        //Gets the selected poll's id from url
         const resultsId = this.props.match.params.resultsId
+
+        //Gets all questions from the store
         const results = this.props.questions
 
+        //Checks if the selected poll exists, if not, redirects user to error (404) page (prevents app from crashing)
         if(results[resultsId] === undefined){
             return <Redirect to={'/error'}/>
         }
 
+        //Gets the desired poll from list of questions
         const result = results[resultsId]
+
+        //Gets a list of users from store
         const users = this.props.users
 
+        //initializing variables
         let name = ''
         let currentUser = this.props.currentUser
-
         let optionOne = ''
         let optionTwo = ''
         let totalVotes =[]
@@ -29,6 +45,7 @@ class PollCardResults extends Component {
         let optionOneStyle={};
         let optionTwoStyle={};
 
+        //Checks if the selected poll have been retrieved from the store before accessing its values.
         if(result !== undefined){
 
             optionOne = result.optionOne
@@ -36,12 +53,13 @@ class PollCardResults extends Component {
             name = users[result.author].name
             totalVotes = totalVotes.concat(optionOne.votes)
             totalVotes = totalVotes.concat(optionTwo.votes)
-
             totalVotesNumber = totalVotes.length
 
+            //calculating percentages of total answered
             percentageOptionOne =  Math.floor((optionOne.votes.length / totalVotesNumber) * 100)
             percentageOptionTwo =  Math.floor((optionTwo.votes.length / totalVotesNumber) * 100)
 
+            //creating style attribute objects that will display the percentage bar
             optionOneStyle = {
                 width: percentageOptionOne + '%'
             }
@@ -144,13 +162,19 @@ class PollCardResults extends Component {
                     </div>
 
                 </div>}
-
-
             </div>
         )
     }
 }
 
+/**
+ * @description Maps the State from Redux store to component props
+ * @function
+ * @param login
+ * @param users
+ * @param questions
+ * @returns {{currentUser: string | null | number | PublicKeyCredentialUserEntity, questions: *, users: *}}
+ */
 function mapStateToProps({login,users,questions}){
     return {
         currentUser:login.user,
@@ -159,5 +183,8 @@ function mapStateToProps({login,users,questions}){
     }
 }
 
+/**
+ * @description Connects the component to the Redux store
+ */
 export default connect(mapStateToProps)(PollCardResults)
 
