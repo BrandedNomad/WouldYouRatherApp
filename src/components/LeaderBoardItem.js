@@ -1,10 +1,19 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 
+/**
+ * @description Represents the individual LeaderBoard items
+ * @class
+ */
 class LeaderBoardItem extends Component {
 
+    /**
+     * @description Renders the LeaderBoard Item component
+     * @returns {JSX.Element}
+     */
     render(){
 
+        //destructure component props
         const {id,name,answered,created,total} = this.props.user
 
         return(
@@ -54,10 +63,12 @@ class LeaderBoardItem extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         )
     }
 }
 
+/**
+ * @description Connects component to Redux store and exports it
+ */
 export default connect()(LeaderBoardItem)

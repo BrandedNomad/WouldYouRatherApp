@@ -2,9 +2,18 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import LoginSelection from "./LoginSelection";
 
+/**
+ * @description Represents the login view
+ * @class
+ */
 class Login extends Component {
 
 
+    /**
+     * @description Renders the Login component
+     * @method
+     * @returns {JSX.Element}
+     */
     render() {
         return (
             <div className='login-container'>
@@ -27,12 +36,18 @@ class Login extends Component {
                         src='./img/loading.gif'
                         alt='loading-spinner'
                     />}
-
             </div>
         )
     }
 }
 
+/**
+ * @description Maps state from Redux store to the component props
+ * @function
+ * @param login
+ * @param users
+ * @returns {{login: *, users: *}}
+ */
 const mapStateToProps = ({login,users})=>{
     return {
         login,
@@ -40,4 +55,7 @@ const mapStateToProps = ({login,users})=>{
     }
 }
 
+/**
+ * @description Connects component to the Redux store and exports it
+ */
 export default connect(mapStateToProps)(Login);

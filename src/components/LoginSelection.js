@@ -5,11 +5,19 @@ import {Redirect} from 'react-router-dom'
 
 import {login} from "../actions/login";
 
+/**
+ * @description Represents the dropdown list of available users that can be logged in
+ * @class
+ */
 class LoginSelection extends Component {
 
+    /**
+     * @description Initializes state and binds methods to component
+     * @constructor
+     * @param prop
+     */
     constructor(prop) {
         super(prop);
-
         this.state={
             selected:this.props.users.sarahedo,
             isActive:false,
@@ -20,18 +28,31 @@ class LoginSelection extends Component {
         this.handleButtonClick = this.handleButtonClick.bind(this)
     }
 
+    /**
+     * @description Logs in selected user and redirects user to home page once logged in
+     * @method
+     * @param event
+     */
     handleButtonClick(event){
         this.props.dispatch(login(this.state.selected))
         this.setState({isLoggedIn:true})
-
     }
 
+    /**
+     * @description Toggles the display of list of users when clicking on dropdown-chevron icon
+     * @method
+     * @param event
+     */
     handleListClick(event){
         this.setState({
             isActive:!this.state.isActive
         })
     }
 
+    /**
+     * @description When selecting a user, Gets the selected user's details from props and updates the selected user display
+     * @param event
+     */
     handleItemClick(event){
         const id =  event.currentTarget.getAttribute('value')
         this.setState({
@@ -41,11 +62,23 @@ class LoginSelection extends Component {
 
     }
 
+    /**
+     * @description Renders the component
+     * @method
+     * @returns {JSX.Element}
+     */
     render(){
-        const {isLoggedIn} = this.state
-        const users = this.props.users;
-        const userIds = Object.keys(users); //can access the first level keys
 
+        //destructure component state
+        const {isLoggedIn} = this.state
+
+        //get users
+        const users = this.props.users;
+
+        //create an array of user Id's
+        const userIds = Object.keys(users);
+
+        //Checks if user is logged in and redirect to homepage if user is logged in.
         if(isLoggedIn){
             return <Redirect to='/'/>
         }
@@ -96,12 +129,17 @@ class LoginSelection extends Component {
                     LOGIN
                 </button>
             </div>
-
         )
     }
-
 }
 
+/**
+ * @description Maps Redux store state to component props
+ * @function
+ * @param login
+ * @param users
+ * @returns {{login: *, users: *}}
+ */
 const mapStateToProps = ({login,users})=>{
     return {
         login,
@@ -109,4 +147,7 @@ const mapStateToProps = ({login,users})=>{
     }
 }
 
+/**
+ * @description connects component to Redux store and exports it
+ */
 export default connect(mapStateToProps)(LoginSelection);
