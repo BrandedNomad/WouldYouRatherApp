@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import LoginSelection from "./LoginSelection";
+import {noTab} from "../actions/navigation";
 
 /**
  * @description Represents the login view
  * @class
  */
 class Login extends Component {
+
+    /**
+     * @description Updates the active Tab on the NavBar once component has loaded.
+     * @method
+     */
+    componentDidMount() {
+        this.props.dispatch(noTab())
+    }
 
 
     /**
