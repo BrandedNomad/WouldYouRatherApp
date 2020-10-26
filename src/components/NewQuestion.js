@@ -4,7 +4,9 @@ import {Redirect} from 'react-router-dom'
 
 import {handleAddQuestion} from "../actions/shared";
 
-
+/**
+ *
+ */
 class NewQuestion extends Component {
 
     constructor(props) {

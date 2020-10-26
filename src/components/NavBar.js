@@ -4,15 +4,26 @@ import {NavLink} from "react-router-dom";
 
 import {logout} from "../actions/login";
 
-
-
+/**
+ * @description Represents the Navigation bar at the top of the page
+ * @class
+ */
 class NavBar extends Component {
 
+    /**
+     * @description Initializes state and binds methods to component
+     * @constructor
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.handleLogout = this.handleLogout.bind(this)
     }
 
+    /**
+     * @description Logs out current user
+     * @method
+     */
     handleLogout(){
         console.log("logged out")
         this.props.dispatch(logout())
@@ -20,6 +31,10 @@ class NavBar extends Component {
 
     }
 
+    /**
+     * @description Renders the NavBar component
+     * @returns {JSX.Element}
+     */
     render(){
 
 
@@ -73,6 +88,12 @@ class NavBar extends Component {
     }
 }
 
+/**
+ * @description Maps state from Redux store to component props
+ * @function
+ * @param login
+ * @returns {{isLoggedIn: *, user: string | null | number | PublicKeyCredentialUserEntity}}
+ */
 function mapStateToProps({login}){
     return {
         user:login.user,
@@ -80,4 +101,7 @@ function mapStateToProps({login}){
     }
 }
 
+/**
+ * @description Connects component to the redux store and exports it
+ */
 export default connect(mapStateToProps)(NavBar)
