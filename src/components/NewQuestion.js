@@ -5,10 +5,16 @@ import {Redirect} from 'react-router-dom'
 import {handleAddQuestion} from "../actions/shared";
 
 /**
- *
+ *@description Represents the view where users can create a new question or poll
+ * @class
  */
 class NewQuestion extends Component {
 
+    /**
+     * @description Initializes state and binds methods to components
+     * @constructor
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.state = {
@@ -21,39 +27,56 @@ class NewQuestion extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    /**
+     * @description Updates the Value of option one everytime it changes
+     * @method
+     * @param event
+     */
     handleOptionOneChange=(event)=>{
         if(event.target.value !== undefined){
             this.setState({optionOneValue:event.target.value})
         }
     }
 
+    /**
+     * @description Updates the value of option two everytime it changes
+     * @method
+     * @param event
+     */
     handleOptionTwoChange=(event)=>{
         if(event.target.value !== undefined){
             this.setState({optionTwoValue:event.target.value})
         }
     }
 
+    /**
+     * @description Adds the new question when user clicks on submit
+     * @method
+     * @param event
+     */
     handleSubmit(event){
         event.preventDefault()
-        console.log("submitted",this.state.optionOneValue, this.state.optionTwoValue,this.props.currentUser.id)
         this.props.dispatch(handleAddQuestion(this.state.optionOneValue,this.state.optionTwoValue,this.props.currentUser.id))
-
-        //todo: navigate to home once submited
         this.setState({redirect:true})
-
     }
 
 
-
-
+    /**
+     * @description Renders teh NewQuestion Component
+     * @method
+     * @returns {JSX.Element}
+     */
     render(){
 
+        //Checks if user have submitted the new question, and if so redirects user to home page
         if(this.state.redirect === true){
             return <Redirect to={'/'}/>
         }
 
+        //gets the currently logged in user
         const currentUser = this.props.currentUser;
 
+        //Checks to see if user is logged in, if not redirects to login page
         if(currentUser === undefined || currentUser === null){
             return <Redirect to={'/login'}/>
         }
@@ -73,8 +96,6 @@ class NewQuestion extends Component {
                                 <p className="new-question_form_body">Would you rather...</p>
                             </div>
                         </div>
-
-
                         <form
                             className='new-question_form'
                             onSubmit={(event)=>{
@@ -108,18 +129,25 @@ class NewQuestion extends Component {
                             </button>
                         </form>
                     </div>
-
                 </div>
-
             </div>
         )
     }
 }
 
+/**
+ * @description Maps Redux store state to component props
+ * @function
+ * @param login
+ * @returns {{currentUser: string | null | number | PublicKeyCredentialUserEntity}}
+ */
 function mapStateToProps({login}){
     return {
         currentUser:login.user,
     }
 }
 
+/**
+ * @description Connects component to the Redux store and exports it
+ */
 export default connect(mapStateToProps)(NewQuestion)
