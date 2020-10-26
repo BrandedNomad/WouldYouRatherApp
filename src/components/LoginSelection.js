@@ -43,7 +43,6 @@ class LoginSelection extends Component {
 
     render(){
         const {isLoggedIn} = this.state
-        console.log("isloggedIn:",isLoggedIn)
         const users = this.props.users;
         const userIds = Object.keys(users); //can access the first level keys
 

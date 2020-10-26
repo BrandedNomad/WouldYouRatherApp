@@ -22,7 +22,11 @@ class Login extends Component {
                     <p className='login-box_body-text'>Login</p>
                     <LoginSelection/>
                 </div>
-                : <img className="loading-login" src='./img/loading.gif'/>}
+                : <img
+                        className="loading-login"
+                        src='./img/loading.gif'
+                        alt='loading-spinner'
+                    />}
 
             </div>
         )

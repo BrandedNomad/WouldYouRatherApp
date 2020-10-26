@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from "react-router-dom";
 
 class PollCardResults extends Component {
     render() {
@@ -7,7 +8,13 @@ class PollCardResults extends Component {
         //todo: refactor into smaller functions
 
         const resultsId = this.props.match.params.resultsId
-        const result = this.props.questions[resultsId]
+        const results = this.props.questions
+
+        if(results[resultsId] === undefined){
+            return <Redirect to={'/error'}/>
+        }
+
+        const result = results[resultsId]
         const users = this.props.users
 
         let name = ''
@@ -43,11 +50,6 @@ class PollCardResults extends Component {
                 width:percentageOptionTwo + "%"
             }
 
-
-
-            console.log("here it is:", result)
-            console.log("total votes:",totalVotes)
-            console.log("return value:", percentageOptionOne, percentageOptionTwo)
         }
 
 

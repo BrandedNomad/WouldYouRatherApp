@@ -16,7 +16,6 @@ class PollCardQuestion extends Component {
     handleSubmit(event){
         event.preventDefault()
         let answer = document.querySelector('input[name="question"]:checked').value
-        console.log("This is the one you are looking for:", this.props.login.user.id)
 
         const authedUser = this.props.login.user.id
         const qid =  this.props.match.params.question_Id
@@ -30,12 +29,17 @@ class PollCardQuestion extends Component {
 
 
         let questionId = this.props.match.params.question_Id
+        let questions = this.props.questions
 
         if(this.state.submitted){
             return <Redirect to={'/results/' + questionId}/>
         }
 
-        let question = this.props.questions[questionId]
+        if(questions[questionId] === undefined){
+            return <Redirect to={'/error'}/>
+        }
+
+        let question = questions[questionId]
         let users = this.props.users
 
         let authorId = ''
@@ -47,11 +51,9 @@ class PollCardQuestion extends Component {
 
         if(question !== undefined){
 
-            console.log("this is the one",author)
             authorId = question.author
             optionOne = question.optionOne.text
             optionTwo = question.optionTwo.text
-            console.log("the author",optionTwo)
 
         }
 

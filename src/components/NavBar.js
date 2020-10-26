@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {Redirect,NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 import {logout} from "../actions/login";
 
@@ -52,6 +52,7 @@ class NavBar extends Component {
                             <img
                                 className='nav-login_avatar'
                                 src={'./img/' + this.props.user.id + '.png'}
+                                alt='avatar'
                             />
                         </div>
                         <div className='nav-login_logout-container'>

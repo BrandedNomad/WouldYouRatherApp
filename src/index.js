@@ -6,8 +6,11 @@ import {Provider} from 'react-redux'
 import {createStore} from "redux";
 import rootReducer from './reducers'
 import middleWare from './middleware'
-import {BrowserRouter} from 'react-router-dom'
 
+/**
+ * @description creates a redux store
+ * @type {Store<unknown, Action>}
+ */
 const store = createStore(rootReducer,middleWare)
 
 ReactDOM.render(

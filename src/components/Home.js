@@ -4,8 +4,17 @@ import {Redirect,Link} from 'react-router-dom'
 
 import PollCardHome from "./PollCardHome";
 
+/**
+ * @description Represents Home component
+ * @class
+ */
 class Home extends Component {
 
+    /**
+     * @description Initializes state and binds functions to component
+     * @constructor
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.state = {
@@ -15,44 +24,52 @@ class Home extends Component {
         this.handleUnansweredClick = this.handleUnansweredClick.bind(this)
     }
 
+    /**
+     * @description Sets the active tab to answered when clicked on
+     * @method
+     */
     handleAnsweredClick(){
         this.setState({activeTab:'answered'})
     }
 
+    /**
+     * @description Sets the active tab to unanswered when clicked on
+     * @method
+     */
     handleUnansweredClick(){
         this.setState({activeTab:'unanswered'})
     }
 
+    /**
+     * @description Renders the component
+     * @returns {JSX.Element}
+     */
     render(){
 
         //todo: refactor the below code into functions
 
+        //destructure props
         const {login, questions,users} = this.props
-
-        const checkUsers = users
 
         //get user
         const currentUser = login.user;
 
+        //check if user is logged in
         if(currentUser === undefined || currentUser === null){
             return <Redirect to={'/login'}/>
         }
 
         //get answered questions ids
         const answers = users[currentUser.id].answers
-        console.log("Still the same?:", answers, users[currentUser.id])
         const answeredQuestionsIds = Object.keys(answers)
 
         //get all question ids
         const allQuestionIds = Object.keys(questions)
 
-        //filter unanswered questions
-
+        //filter for unanswered questions
         const unansweredQuestionsIds = allQuestionIds.filter((id)=>{
-
             return !answeredQuestionsIds.includes(id)
         })
-
 
         //turn questions into an array
         const questionsArray = Object.entries(questions)
@@ -71,11 +88,9 @@ class Home extends Component {
             return question[1]
         })
 
-
         //order questions
         unansweredQuestions.sort((a,b)=>b.timestamp - a.timestamp)
         answeredQuestions.sort((a,b)=>b.timestamp - a.timestamp)
-
 
         return (
             <div className='home-container'>
@@ -117,7 +132,6 @@ class Home extends Component {
                                     </ul>
                                 </div>
                         }
-
                     </div>
                 </div>
             </div>
@@ -125,6 +139,13 @@ class Home extends Component {
     }
 }
 
+/**
+ * @description Maps state from redux store to component props
+ * @param questions
+ * @param login
+ * @param users
+ * @returns {{questions: *, login: *, users: *}}
+ */
 function mapStateToProps({questions,login,users}){
 
     return {
@@ -134,4 +155,7 @@ function mapStateToProps({questions,login,users}){
     }
 }
 
+/**
+ * @description Connects component to redux store and exports it
+ */
 export default connect(mapStateToProps)(Home)

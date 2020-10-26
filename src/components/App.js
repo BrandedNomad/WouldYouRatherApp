@@ -12,19 +12,28 @@ import LeaderBoard from "./LeaderBoard";
 import PollCardQuestion from './PollCardQuestion'
 import PollCardResults from "./PollCardResults";
 import Error from "./Error";
-
-
-
 import '../styles/styles.scss';
 
+/**
+ * @description Represents the App component
+ * @class
+ *
+ */
 class App extends Component {
+
+    /**
+     * @description Loads the initial data from API into redux store
+     * @method
+     */
     componentDidMount(){
         this.props.dispatch(handleInitialData())
-
     }
 
 
-
+    /**
+     * @description Renders the Component
+     * @method
+     */
     render(){
     return (
         <BrowserRouter>
@@ -44,16 +53,24 @@ class App extends Component {
                 </div>
             </div>
         </BrowserRouter>
-
     );
   }
 
 }
 
+/**
+ * @description Maps the state from redux store to component props
+ * @function
+ * @param users
+ * @returns {{users: *}}
+ */
 const mapStateToProps=({users})=>{
     return {
         users
     }
 }
 
+/**
+ * @description Connects component to redux store and exports it
+ */
 export default connect(mapStateToProps)(App);
