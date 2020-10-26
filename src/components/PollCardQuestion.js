@@ -19,7 +19,7 @@ class PollCardQuestion extends Component {
         console.log("This is the one you are looking for:", this.props.login.user.id)
 
         const authedUser = this.props.login.user.id
-        const qid =  this.props.match.params.questionId
+        const qid =  this.props.match.params.question_Id
 
         this.props.dispatch(handleAnswerQuestion(authedUser,qid, answer))
         this.setState({submitted:true})
@@ -29,7 +29,7 @@ class PollCardQuestion extends Component {
 
 
 
-        let questionId = this.props.match.params.questionId
+        let questionId = this.props.match.params.question_Id
 
         if(this.state.submitted){
             return <Redirect to={'/results/' + questionId}/>
@@ -52,6 +52,7 @@ class PollCardQuestion extends Component {
             optionOne = question.optionOne.text
             optionTwo = question.optionTwo.text
             console.log("the author",optionTwo)
+
         }
 
         if(users !== undefined) {

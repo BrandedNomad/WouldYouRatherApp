@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Redirect} from 'react-router-dom'
+import {Redirect,Link} from 'react-router-dom'
 
 import PollCardHome from "./PollCardHome";
 
@@ -103,6 +103,10 @@ class Home extends Component {
                                         {unansweredQuestions.map((item)=>{
                                             return <PollCardHome key={item.id} question={item} tab={this.state.activeTab}/>
                                         })}
+                                        {
+                                            unansweredQuestions.length === 0 &&
+                                                <p>No Unanswered Questions! Try creating a <Link to={'/add'}>New Question</Link></p>
+                                        }
                                     </ul>
                                 </div>
                                 : <div>

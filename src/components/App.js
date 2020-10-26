@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {handleInitialData} from "../actions/shared";
 import {connect} from "react-redux"
-import {BrowserRouter,Route} from "react-router-dom";
+import {BrowserRouter,Route, Switch} from "react-router-dom";
 
 
 import Login from "./Login"
@@ -11,6 +11,7 @@ import Home from "./Home";
 import LeaderBoard from "./LeaderBoard";
 import PollCardQuestion from './PollCardQuestion'
 import PollCardResults from "./PollCardResults";
+import Error from "./Error";
 
 
 
@@ -30,12 +31,16 @@ class App extends Component {
             <div className="App">
                 <NavBar/>
                 <div>
-                    <Route path='/' exact component={Home}/>
-                    <Route path='/login' exact component={Login}/>
-                    <Route path='/add' exact component={NewQuestion}/>
-                    <Route path='/leaderboard' exact component={LeaderBoard}/>
-                    <Route path='/questions/:questionId' exact component={PollCardQuestion}/>
-                    <Route path ='/results/:resultsId' exact component={PollCardResults}/>
+                    <Switch>
+                        <Route path='/' exact component={Home}/>
+                        <Route path='/login' exact component={Login}/>
+                        <Route path='/add' exact component={NewQuestion}/>
+                        <Route path='/leaderboard' exact component={LeaderBoard}/>
+                        <Route path='/questions/:question_Id' exact component={PollCardQuestion}/>
+                        <Route path ='/results/:resultsId' exact component={PollCardResults}/>
+                        <Route component={Error}/>
+                    </Switch>
+
                 </div>
             </div>
         </BrowserRouter>

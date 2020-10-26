@@ -11,6 +11,11 @@
 .home-poll-menu-container {
   border:1px solid #c4c4c4;
   border-radius: 5px;
+  width:$card-width;
+  display:flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
 
 }
 
