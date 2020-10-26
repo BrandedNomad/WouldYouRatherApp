@@ -1,6 +1,7 @@
 import loginReducer from "./loginReducer";
 import usersReducer from "./usersReducer";
 import questionsReducer from "./questionsReducer"
+import navReducer from "./navReducer";
 import {combineReducers} from "redux";
 
 /**
@@ -9,5 +10,6 @@ import {combineReducers} from "redux";
 export default combineReducers({
     login:loginReducer,
     users:usersReducer,
-    questions: questionsReducer
+    questions:questionsReducer,
+    activeTab:navReducer
 });

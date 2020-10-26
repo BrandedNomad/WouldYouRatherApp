@@ -2,12 +2,21 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import LeaderBoardItem from "./LeaderBoardItem";
 import {Redirect} from "react-router-dom";
+import {leaderTab} from "../actions/navigation";
 
 /**
  * @description Represents the Leader board that displays leaders
  * @class
  */
 class LeaderBoard extends Component {
+
+    /**
+     * @description Updates the activeTabState of NavBar once component has mounted
+     * @method
+     */
+    componentDidMount(){
+        this.props.dispatch(leaderTab())
+    }
 
 
     /**

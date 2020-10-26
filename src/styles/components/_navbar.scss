@@ -40,6 +40,18 @@
 
 }
 
+.nav-pages_home-container-active {
+  height:50px;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  text-decoration: none;
+  color:white;
+  background-color:$pink;
+}
+
 .nav-pages_home-container:hover {
   background-color:$primary-blue;
   color:black;
@@ -60,6 +72,19 @@
   padding: 0 10px 0 10px;
   text-decoration: none;
   color:white
+
+}
+
+.nav-pages_question-container-active {
+  height:50px;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  text-decoration: none;
+  color:white;
+  background-color:$pink;
 
 }
 
@@ -86,6 +111,17 @@
 
 }
 
+.nav-pages_leader-container-active {
+  height:50px;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  text-decoration: none;
+  color:white;
+  background-color:$pink;
+}
 .nav-pages_leader-container:hover {
   background-color:$primary-blue;
   color:black;

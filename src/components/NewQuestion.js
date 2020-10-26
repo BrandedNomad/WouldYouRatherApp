@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom'
 
 import {handleAddQuestion} from "../actions/shared";
+import {newQuestionTab} from "../actions/navigation";
 
 /**
  *@description Represents the view where users can create a new question or poll
@@ -25,6 +26,14 @@ class NewQuestion extends Component {
         this.handleOptionOneChange = this.handleOptionOneChange.bind(this)
         this.handleOptionTwoChange = this.handleOptionTwoChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    /**
+     * @description Updates the activeTabState of NavBar once component has mounted
+     * @method
+     */
+    componentDidMount(){
+        this.props.dispatch(newQuestionTab())
     }
 
     /**

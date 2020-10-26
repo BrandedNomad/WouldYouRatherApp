@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect,Link} from 'react-router-dom'
 
 import PollCardHome from "./PollCardHome";
+import {homeTab} from "../actions/navigation";
 
 /**
  * @description Represents Home component
@@ -22,6 +23,14 @@ class Home extends Component {
         }
         this.handleAnsweredClick = this.handleAnsweredClick.bind(this)
         this.handleUnansweredClick = this.handleUnansweredClick.bind(this)
+    }
+
+    /**
+     * @description Updates the activeTabState of NavBar once component has mounted
+     * @method
+     */
+    componentDidMount(){
+        this.props.dispatch(homeTab())
     }
 
     /**
@@ -45,6 +54,7 @@ class Home extends Component {
      * @returns {JSX.Element}
      */
     render(){
+
 
         //todo: refactor the below code into functions
 

@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from "react-router-dom";
+import {noTab} from "../actions/navigation";
 
 /**
  * @description Represents the view where users can view a selected poll's results
  * @class
  */
 class PollCardResults extends Component {
+
+    /**
+     * @description Updates the activeTabState of NavBar once component has mounted
+     * @method
+     */
+    componentDidMount(){
+        this.props.dispatch(noTab())
+    }
 
     /**
      * @description Renders and instance of PollCardResults

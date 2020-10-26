@@ -18,6 +18,7 @@ class NavBar extends Component {
     constructor(props) {
         super(props);
         this.handleLogout = this.handleLogout.bind(this)
+        this.handleActiveTab = this.handleActiveTab.bind(this)
     }
 
     /**
@@ -31,11 +32,14 @@ class NavBar extends Component {
 
     }
 
+
     /**
      * @description Renders the NavBar component
      * @returns {JSX.Element}
      */
     render(){
+
+        const activeTab = this.props.activeTab.activeTab
 
 
         return(
@@ -43,19 +47,19 @@ class NavBar extends Component {
                 <div className='nav-center'>
                     <div className="nav-pages">
                         <NavLink
-                            className="nav-pages_home-container"
+                            className={activeTab === 'Home' ? "nav-pages_home-container-active" : "nav-pages_home-container" }
                             to="/"
                         >
                             <span className="nav-pages_home-text">Home</span>
                         </NavLink>
                         <NavLink
-                            className="nav-pages_question-container"
+                            className={activeTab === 'New Question' ? "nav-pages_question-container-active" :"nav-pages_question-container"}
                             to='/add'
                         >
                             <span className="nav-pages_question-text">New Question</span>
                         </NavLink>
                         <NavLink
-                            className="nav-pages_leader-container"
+                            className={activeTab === "Leader Board"? "nav-pages_leader-container-active" : "nav-pages_leader-container"}
                             to='/leaderboard'
                         >
                             <span className="nav-pages_leader-text">Leader Board</span>
@@ -92,12 +96,14 @@ class NavBar extends Component {
  * @description Maps state from Redux store to component props
  * @function
  * @param login
+ * @param activeTab
  * @returns {{isLoggedIn: *, user: string | null | number | PublicKeyCredentialUserEntity}}
  */
-function mapStateToProps({login}){
+function mapStateToProps({login,activeTab}){
     return {
         user:login.user,
-        isLoggedIn:login.state
+        isLoggedIn:login.state,
+        activeTab
     }
 }
 

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {handleAnswerQuestion} from "../actions/shared";
 import {Redirect} from 'react-router-dom'
+import { noTab} from "../actions/navigation";
 
 /**
  * @description Represents the view where users can answer a selected poll question
@@ -20,6 +21,14 @@ class PollCardQuestion extends Component {
             submitted:false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    /**
+     * @description Updates the activeTabState of NavBar once component has mounted
+     * @method
+     */
+    componentDidMount(){
+        this.props.dispatch(noTab())
     }
 
     /**
