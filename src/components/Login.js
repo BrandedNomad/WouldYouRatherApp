@@ -36,6 +36,7 @@ class Login extends Component {
                         alt='would you rater'
                         src='./img/choiceb.jpg'
                         className='login-box_image'
+                        onError={(e)=>{e.target.onerror = null; e.target.src="../img/choiceb.jpg"}}
                     />
                     <p className='login-box_body-text'>Login</p>
                     <LoginSelection/>
@@ -44,6 +45,7 @@ class Login extends Component {
                         className="loading-login"
                         src='./img/loading.gif'
                         alt='loading-spinner'
+                        onError={(e)=>{e.target.onerror = null; e.target.src="../img/loading.gif"}}
                     />}
             </div>
         )

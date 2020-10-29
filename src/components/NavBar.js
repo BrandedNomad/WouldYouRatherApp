@@ -72,6 +72,7 @@ class NavBar extends Component {
                                 className='nav-login_avatar'
                                 src={'./img/' + this.props.user.id + '.png'}
                                 alt='avatar'
+                                onError={(e)=>{e.target.onerror = null; e.target.src="../img/" + this.props.user.id + '.png'}}
                             />
                         </div>
                         <div className='nav-login_logout-container'>

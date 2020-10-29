@@ -41,12 +41,27 @@ class App extends Component {
                 <NavBar/>
                 <div>
                     <Switch>
-                        <Route path='/' exact component={Home}/>
+                        <Route path='/' exact component={({match})=>{
+                            return this.props.login.state ? (<Home match={match}/>):(<Login/>)
+
+                        }}/>
                         <Route path='/login' exact component={Login}/>
-                        <Route path='/add' exact component={NewQuestion}/>
-                        <Route path='/leaderboard' exact component={LeaderBoard}/>
-                        <Route path='/questions/:question_Id' exact component={PollCardQuestion}/>
-                        <Route path ='/results/:resultsId' exact component={PollCardResults}/>
+                        <Route path='/add' exact component={({match})=>{
+                            return this.props.login.state ? (<NewQuestion match={match}/>):(<Login/>)
+
+                        }}/>
+                        <Route path='/leaderboard' exact component={({match})=>{
+                            return this.props.login.state ? (<LeaderBoard match={match}/>):(<Login/>)
+
+                        }}/>
+                        <Route path='/questions/:question_Id' exact component={({match})=>{
+                            return this.props.login.state ? (<PollCardQuestion match={match}/>):(<Login/>)
+
+                        }}/>
+                        <Route path ='/results/:resultsId' exact render={({match})=>{
+                            return this.props.login.state ? (<PollCardResults match={match}/>):(<Login/>)
+
+                        }}/>
                         <Route component={Error}/>
                     </Switch>
 
@@ -64,9 +79,10 @@ class App extends Component {
  * @param users
  * @returns {{users: *}}
  */
-const mapStateToProps=({users})=>{
+const mapStateToProps=({users,login})=>{
     return {
-        users
+        users,
+        login
     }
 }
 

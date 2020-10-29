@@ -92,6 +92,7 @@ class LoginSelection extends Component {
                             className='login_selection_image'
                             alt={this.state.selected.id}
                             src={'./img/' + this.state.selected.id + '.png'}
+                            onError={(e)=>{e.target.onerror = null; e.target.src='../img/' + this.state.selected.id + '.png'}}
                         />
                         <span className='login_selection_text'>{this.state.selected.name}</span>
                         <div className="login_selection_chevron_container">
@@ -114,6 +115,7 @@ class LoginSelection extends Component {
                                             className='login_dropdown_item_image'
                                             alt={id}
                                             src={'./img/' + id + '.png'}
+                                            onError={(e)=>{e.target.onerror = null; e.target.src='../img/' + id + '.png'}}
                                         />
                                         <span>{users[id].name}</span>
                                     </li>
